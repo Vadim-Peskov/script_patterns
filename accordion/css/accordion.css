@@ -1,0 +1,106 @@
+body {
+	font-family: "Gilroy", sans-serif;
+	font-size: 16px;
+}
+
+.container {
+	max-width: 1000px;
+	margin: 80px auto;
+}
+
+.accordion {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.accordion__item {
+    margin-bottom: 10px;
+}
+
+.accordion__trigger {
+    position: relative;
+    width: 100%;
+    padding-left: 16px;
+    padding-right: 30px;
+    padding-top: 9px;
+    padding-bottom: 9px;
+    font-weight: 600;
+    line-height: 1.25;
+    text-align: left;
+	background-color: #e9f0f7;
+    border: none;
+    border-radius: 3px;
+    user-select: none;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.accordion__trigger::before,
+.accordion__trigger::after {
+    position: absolute;
+    content: "";
+    top: 50%;
+    width: 7px;
+    height: 2px;
+    background-color: #000000;
+    transform: translate(-50%, -50%);
+    transition: all 0.3s ease;
+}
+
+.accordion__trigger::before {
+    right: 19px;
+    width: 8px;
+    transform: rotate(45deg);
+}
+
+.accordion__trigger::after {
+    right: 14px;
+    width: 8px;
+    transform: rotate(-45deg);
+}
+
+.accordion__trigger:focus {
+    outline: 2px solid #000000;
+    outline-offset: 2px;
+    transition: none !important;
+}
+
+.accordion__trigger--active.accordion__trigger::before {
+    right: 19px;
+    transform: rotate(0deg);
+    
+}
+.accordion__trigger--active.accordion__trigger::after {
+    right: 14px;
+    transform: rotate(0deg);
+}
+
+.accordion__content {
+    max-height: 0;
+    margin-top: 2px;
+    background-color: #ebf6ff;
+    border-radius: 3px;
+    overflow: hidden;
+    transition: max-height 0.5s ease;
+}
+
+.accordion__text {
+    margin: 0;
+    padding: 10px 16px;
+    line-height: 1.5;
+}
+
+.accordion__trigger:hover,
+.accordion__trigger--active.accordion__trigger {
+    background: #d2e7ff;
+}
+
+@media (min-width: 768px) {
+    .accordion {
+        align-self: stretch;
+        flex: 1 1 100%;
+    }
+}
